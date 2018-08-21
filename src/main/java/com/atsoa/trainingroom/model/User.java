@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "user")
@@ -25,6 +26,8 @@ public class User extends AbstractPersistable<Long> implements Serializable, Clo
 
     @NotNull
     public String password;
+
+    public ArrayList<Book> books;
 
     public Boolean disabled;
 
