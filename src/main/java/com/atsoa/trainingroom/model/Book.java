@@ -26,6 +26,4 @@ public class Book extends AbstractPersistable<Long> implements Serializable, Clo
     @NotNull
     public Boolean isSaid;
 
-    public String saidUsername;
-
 }
