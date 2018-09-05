@@ -12,17 +12,19 @@ import java.io.Serializable;
 @Table(name = "book")
 public class Book extends AbstractPersistable<Long> implements Serializable, Cloneable {
 
+    private static final long serialVersionUID = -1;
+
     @Override
-    protected void setId(Long id) {
+    public void setId(Long id) {
         super.setId(id);
     }
 
     @Column(unique = true)
     @NotNull
-    public String bookName;
+    public String bookname;
 
     @NotNull
-    public String authorName;
+    public String authorname;
 
     @NotNull
     public String ISBN;

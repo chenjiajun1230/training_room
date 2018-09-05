@@ -6,7 +6,7 @@
 
 <h1>Hello World!</h1>
 
-<a href="/book">图书管理例子</a>
+<a href="/book/list">图书管理例子</a>
 
 </@frame.frame>
 

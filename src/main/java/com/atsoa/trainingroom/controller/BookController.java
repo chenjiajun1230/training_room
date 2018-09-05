@@ -33,14 +33,14 @@ public class BookController {
     @Transactional(readOnly = true)
     public @ResponseBody Map<String, Object> listData(@RequestParam int page, @RequestParam int rows,
                                  @RequestParam String sord, @RequestParam String sidx,
-                                 @RequestParam Optional<String> bookName) {
+                                 @RequestParam Optional<String> bookname) {
         PageRequest pageRequest = new PageRequest(page-1, rows,
                 sord.equals("asc") ? Sort.Direction.ASC : Sort.Direction.DESC,
                 !StringUtils.isEmpty(sidx) ? sidx : "id");
 
         Specifications<Book> spec = Specifications
                 .where((root, query, cb) ->
-                        StringUtils.isEmpty(bookName) ? cb.like(root.get("bookName"), "%"+bookName+"%") : null);
+                        StringUtils.isEmpty(bookname) ? cb.like(root.get("bookname"), "%"+bookname+"%") : null);
 
         Page<Book> pageData = bookRepository.findAll(spec, pageRequest);
         return map(
@@ -51,7 +51,7 @@ public class BookController {
         );
     }
 
-    @RequestMapping(value = "/loan/{bookId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/loanBook/{bookId}", method = RequestMethod.POST)
     public @ResponseBody Map<String, Object> loanBook(@PathVariable Long bookId) {
         Book entity = bookRepository.findOne(bookId);
         entity.isSaid = true;
@@ -61,7 +61,7 @@ public class BookController {
         );
     }
 
-    @RequestMapping(value = "/return/{bookId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/returnBook/{bookId}", method = RequestMethod.POST)
     public @ResponseBody Map<String, Object> returnBook(@PathVariable Long bookId) {
         Book entity = bookRepository.findOne(bookId);
         entity.isSaid = false;
