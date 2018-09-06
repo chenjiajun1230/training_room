@@ -28,6 +28,8 @@
                 if (response.ret === 0) {
                     alert("借出图书成功");
                     $("#gridBody").trigger("reloadGrid");
+                } else if (response.ret === 1) {
+                    alert("图书还未归不能借出")
                 }
             });
         }
@@ -40,6 +42,8 @@
                 if (response.ret === 0) {
                     alert("归还图书成功");
                     $("#gridBody").trigger("reloadGrid");
+                } else if (response.ret === 1) {
+                    alert("图书还未借出不能归还")
                 }
             });
         }

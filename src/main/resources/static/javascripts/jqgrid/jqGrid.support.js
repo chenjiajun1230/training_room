@@ -42,9 +42,9 @@ $(function () {
 });
 
 function disabledFormatter(cellValue, options, rowObject) {
-    if (cellValue === true) return "已借出";
+    if (cellValue === true) return "<span class='glyphicon glyphicon-remove text-danger'></span>";
 // <span class='glyphicon glyphicon-remove text-danger'></span>
-    return "未借出";
+    return "<span class='glyphicon glyphicon-ok text-success'></span>";
 }
 
 function resolveGrid(gridId) {
