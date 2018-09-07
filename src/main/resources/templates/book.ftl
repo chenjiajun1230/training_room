@@ -4,7 +4,7 @@
 
 <@frame.frame "Training Room">
 
-<h1>用户管理</h1>
+<h1>图书管理</h1>
 
 <script type="text/javascript">
     $(function () {
@@ -16,7 +16,7 @@
                 { label: '书名', name: 'bookname', width: 50 },
                 { label: '作者', name: 'authorname', width: 35, sortable:false },
                 { label: 'ISBN号', name: 'ISBN', width: 50, sortable:false },
-                { label: '借出状态', name: 'isSaid', width: 50, formatter:disabledFormatter }
+                { label: '借出状态', name: 'isSaid', width: 50, formatter:isSaidFormatter }
             ]
         });
     });
@@ -29,7 +29,7 @@
                     alert("借出图书成功");
                     $("#gridBody").trigger("reloadGrid");
                 } else if (response.ret === 1) {
-                    alert("图书还未归不能借出")
+                    alert("图书还未归还不能借出")
                 }
             });
         }

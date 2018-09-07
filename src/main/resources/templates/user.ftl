@@ -15,7 +15,7 @@
                 { label: 'ID', name: 'id', hidden:true },
                 { label: '用户名', name: 'username', width: 75 },
                 { label: '密码', name: 'password', width: 200, sortable:false },
-                { label: '是否禁用', name: 'disabled', width: 20, formatter:disabledFormatter }
+                { label: '是否禁用', name: 'disabled', width: 20, formatter:disableFormatter }
             ]
         });
     });

@@ -54,7 +54,7 @@ public class BookController {
     @RequestMapping(value = "/loanBook/{bookId}", method = RequestMethod.POST)
     public @ResponseBody Map<String, Object> loanBook(@PathVariable Long bookId) {
         Book entity = bookRepository.findOne(bookId);
-        if (entity != null && entity.isSaid.equals(true)) {
+        if (entity.isSaid.equals(true)) {
             return map(
                     entry("ret", 1)
             );
@@ -69,7 +69,7 @@ public class BookController {
     @RequestMapping(value = "/returnBook/{bookId}", method = RequestMethod.POST)
     public @ResponseBody Map<String, Object> returnBook(@PathVariable Long bookId) {
         Book entity = bookRepository.findOne(bookId);
-        if (entity != null && entity.isSaid.equals(false)) {
+        if (entity.isSaid.equals(false)) {
             return map(
                     entry("ret", 1)
             );

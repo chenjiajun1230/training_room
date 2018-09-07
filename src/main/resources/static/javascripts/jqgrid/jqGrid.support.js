@@ -41,10 +41,14 @@ $(function () {
     }
 });
 
-function disabledFormatter(cellValue, options, rowObject) {
+function isSaidFormatter(cellValue, options, rowObject) {
+    if (cellValue === true) return "<span class='glyphicon glyphicon-ban-circle text-danger'></span>";
+    return "<span class='glyphicon glyphicon-ok-sign text-success'></span>";
+}
+
+function disableFormatter(cellValue, options, rowObject) {
     if (cellValue === true) return "<span class='glyphicon glyphicon-remove text-danger'></span>";
-// <span class='glyphicon glyphicon-remove text-danger'></span>
-    return "<span class='glyphicon glyphicon-ok text-success'></span>";
+    return "";
 }
 
 function resolveGrid(gridId) {
